@@ -46,6 +46,9 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "generate-migrations": [
+            "@php artisan generate:migrations --path=database/migrations"
         ]
     },
     "extra": {
