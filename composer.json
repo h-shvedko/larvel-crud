@@ -28,7 +28,6 @@
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
             "Modules\\" : "Modules/",
-            "Hshvedko\\FormsGenerator\\" : "packages/Hshvedko/FormsGenerator/src"
         }
     },
     "autoload-dev": {
