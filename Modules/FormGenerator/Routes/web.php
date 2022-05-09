@@ -12,5 +12,9 @@
 */
 
 Route::prefix('formgenerator')->group(function() {
-    Route::get('/', 'FormGeneratorController@index');
+    Route::get('/', 'FormGeneratorController@index')->name('index');
+    Route::get('/create', 'FormGeneratorController@create')->name('create');
+    Route::get('/list', 'FormGeneratorController@show')->name('show');
+    Route::get('/edit/{id}', 'FormGeneratorController@edit')->name('edit');
+    Route::get('/remove/{id}', 'FormGeneratorController@remove')->name('remove');
 });

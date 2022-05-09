@@ -1,5 +1,6 @@
 <?php
 
 return [
-    'name' => 'FormGenerator'
+    'name' => 'FormGenerator',
+    'htmlTitle' => 'Form generator module'
 ];

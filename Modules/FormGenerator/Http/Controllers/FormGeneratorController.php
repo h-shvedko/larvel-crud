@@ -2,9 +2,11 @@
 
 namespace Modules\FormGenerator\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\FormGenerator\Entities\Fields;
 
 class FormGeneratorController extends Controller
 {
@@ -48,12 +50,13 @@ class FormGeneratorController extends Controller
 
     /**
      * Show the specified resource.
-     * @param int $id
      * @return Renderable
      */
-    public function show($id)
+    public function show()
     {
-        return view('formgenerator::show');
+        return view('formgenerator::show',  [
+            'fields' => Fields::all()
+        ]);
     }
 
     /**
@@ -82,7 +85,7 @@ class FormGeneratorController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function destroy($id)
+    public function remove($id)
     {
         //
     }
