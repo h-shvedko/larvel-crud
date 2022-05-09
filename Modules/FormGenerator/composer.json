@@ -1,0 +1,23 @@
+{
+    "name": "hshvedko/formgenerator",
+    "description": "",
+    "authors": [
+        {
+            "name": "Hennadii Shvedko",
+            "email": "shvedko.h@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\FormGenerator\\": ""
+        }
+    }
+}

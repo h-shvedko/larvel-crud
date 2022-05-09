@@ -1,0 +1,13 @@
+{
+    "name": "FormGenerator",
+    "alias": "formgenerator",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\FormGenerator\\Providers\\FormGeneratorServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
