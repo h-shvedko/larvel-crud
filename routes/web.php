@@ -16,4 +16,6 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/user/{id}', [App\Http\Controllers\UsersController::class, 'edit'])->name('edit');
+Route::get('/users', [App\Http\Controllers\UsersController::class, 'index'])->name('users.index');
+Route::get('/user/{id}', [App\Http\Controllers\UsersController::class, 'edit'])->name('users.edit');
+Route::get('/user/{id}/remove', [App\Http\Controllers\UsersController::class, 'destroy'])->name('users.remove');
