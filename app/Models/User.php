@@ -41,4 +41,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function roles()
+    {
+        return $this->hasManyThrough(UserToGroups::class, RolesToGroups::class);
+    }
+
+    public function hasRole(string $role){
+        echo "<pre>";
+        foreach ($this->roles as $role) {
+            print_r($role);
+        }
+    }
 }

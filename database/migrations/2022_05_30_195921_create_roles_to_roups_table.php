@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePasswordResetsTable extends Migration
+class CreateRolesToRoupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreatePasswordResetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('password_resets', function (Blueprint $table) {
-            $table->string('email')->index('password_resets_email_index');
-            $table->string('token');
-            $table->timestamp('created_at')->nullable();
+        Schema::create('roles_to_roups', function (Blueprint $table) {
+            $table->bigInteger('id')->primary();
+            $table->smallInteger('role_id')->default(0);
+            $table->smallInteger('group_id')->default(0);
         });
     }
 
@@ -27,6 +27,6 @@ class CreatePasswordResetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('password_resets');
+        Schema::dropIfExists('roles_to_roups');
     }
 }

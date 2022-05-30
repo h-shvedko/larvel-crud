@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCustomersTable extends Migration
+class CreateTradersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateCustomersTable extends Migration
      */
     public function up()
     {
-        Schema::create('customers', function (Blueprint $table) {
+        Schema::create('traders', function (Blueprint $table) {
             $table->unsignedInteger('id')->primary();
             $table->string('name', 50);
             $table->text('description');
@@ -31,7 +31,7 @@ class CreateCustomersTable extends Migration
             $table->dateTime('created_at');
             $table->unsignedInteger('created_by');
             $table->unsignedInteger('modified_by');
-            $table->dateTime('modified_at');
+            $table->dateTime('modified_at')->default('current_timestamp()');
         });
     }
 
@@ -42,6 +42,6 @@ class CreateCustomersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customers');
+        Schema::dropIfExists('traders');
     }
 }

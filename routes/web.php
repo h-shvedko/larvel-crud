@@ -15,7 +15,15 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/users', [App\Http\Controllers\UsersController::class, 'index'])->name('users.index');
-Route::get('/user/{id}', [App\Http\Controllers\UsersController::class, 'edit'])->name('users.edit');
-Route::get('/user/{id}/remove', [App\Http\Controllers\UsersController::class, 'destroy'])->name('users.remove');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])
+    ->name('home')
+    ->middleware('roles:user');
+Route::get('/users', [App\Http\Controllers\UsersController::class, 'index'])
+    ->name('users.index')
+    ->middleware('roles:super_admin,admin');
+Route::get('/user/{id}', [App\Http\Controllers\UsersController::class, 'edit'])
+    ->name('users.edit')
+    ->middleware('roles:super_admin,admin');
+Route::get('/user/{id}/remove', [App\Http\Controllers\UsersController::class, 'destroy'])
+    ->name('users.remove')
+    ->middleware('roles:super_admin,admin');

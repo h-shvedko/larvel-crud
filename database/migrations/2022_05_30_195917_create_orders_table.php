@@ -24,8 +24,8 @@ class CreateOrdersTable extends Migration
             $table->unsignedInteger('is_delivered')->default(0);
             $table->unsignedInteger('is_active')->default(1);
             $table->unsignedInteger('is_on_pause')->default(0);
-            $table->dateTime('create_at')->default('current_timestamp()');
-            $table->dateTime('modified_at')->default('current_timestamp()');
+            $table->timestamp('modified_at')->nullable()->default('current_timestamp()');
+            $table->timestamp('created_at')->nullable();
             $table->unsignedInteger('created_by');
             $table->unsignedInteger('modified_by');
         });

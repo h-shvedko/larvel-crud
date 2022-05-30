@@ -31,7 +31,7 @@ class CreateCustomersTable extends Migration
             $table->dateTime('created_at');
             $table->unsignedInteger('created_by');
             $table->unsignedInteger('modified_by');
-            $table->dateTime('modified_at');
+            $table->dateTime('modified_at')->default('current_timestamp()');
         });
     }
 

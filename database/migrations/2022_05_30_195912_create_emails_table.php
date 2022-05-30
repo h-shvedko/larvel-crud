@@ -18,7 +18,7 @@ class CreateEmailsTable extends Migration
             $table->text('content');
             $table->unsignedInteger('sender_user_id');
             $table->string('recipient_email', 50);
-            $table->dateTime('created_at')->default('current_timestamp()');
+            $table->dateTime('created_at');
             $table->dateTime('removed_at')->default('current_timestamp()');
         });
     }
