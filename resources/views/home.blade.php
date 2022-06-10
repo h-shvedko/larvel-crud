@@ -8,7 +8,9 @@
             <p>You have ability to use the following links:</p>
             <ul>
                 @if($user->hasRole(\App\Providers\AppServiceProvider::SUPER_ADMIN) || $user->hasRole(\App\Providers\AppServiceProvider::ADMIN))
-                <li><a href="{{ route('users.index') }}">Users administration</a></li>
+                    <li><a href="{{ route('users.index') }}">Users administration</a></li>
+                @else
+                    <li><a href="{{ route('profile.index') }}">Your profile</a></li>
                 @endif
             </ul>
         </div>
