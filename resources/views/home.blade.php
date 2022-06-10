@@ -9,9 +9,8 @@
             <ul>
                 @if($user->hasRole(\App\Providers\AppServiceProvider::SUPER_ADMIN) || $user->hasRole(\App\Providers\AppServiceProvider::ADMIN))
                     <li><a href="{{ route('users.index') }}">Users administration</a></li>
-                @else
-                    <li><a href="{{ route('profile.index') }}">Your profile</a></li>
                 @endif
+                <li><a href="{{ route('profile.index') }}">Your profile</a></li>
             </ul>
         </div>
     </div>

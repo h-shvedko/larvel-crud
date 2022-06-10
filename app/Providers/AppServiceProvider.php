@@ -12,7 +12,7 @@ class AppServiceProvider extends ServiceProvider
     const REMOVED = -1;
 
     //User's roles list
-    const SUPER_ADMIN = 'super admin';
+    const SUPER_ADMIN = 'super_admin';
     const ADMIN = 'admin';
     const USER = 'user';
     const TRADER = 'trader';

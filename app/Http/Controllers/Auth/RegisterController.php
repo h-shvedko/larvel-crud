@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\UserGroups;
+use App\Models\UserToGroups;
+use App\Providers\AppServiceProvider;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -64,10 +68,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        $group = DB::table('user_groups')
+            ->where('group_name', '=', AppServiceProvider::USER)
+            ->where('is_active', '=', 1)
+            ->first();
+
+        $usersToGroups = UserToGroups::create([
+            'user_id' => $user->id,
+            'group_id' => $group->id
+        ]);
+
+        return $user;
     }
 }

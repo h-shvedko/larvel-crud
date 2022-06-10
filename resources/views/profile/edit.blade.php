@@ -11,7 +11,7 @@
                     @csrf
                     <div class="row mb-3">
                         <div class="col-auto">
-                            <label for="">User name</label>:
+                            <label for="">User's name</label>:
                         </div>
                         <div class="col">
                             <input type="text" required class="form-control @error('name') invalid @enderror" name="name" value="{{ $user->name }}">

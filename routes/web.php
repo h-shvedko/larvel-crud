@@ -26,6 +26,9 @@ Route::get('/users', [App\Http\Controllers\UsersController::class, 'index'])
 Route::get('/user/{id}', [App\Http\Controllers\UsersController::class, 'edit'])
     ->name('users.edit')
     ->middleware('roles:super_admin,admin');
+Route::post('/user/{id}/save', [App\Http\Controllers\UsersController::class, 'update'])
+    ->name('users.save')
+    ->middleware('roles:super_admin,admin');
 Route::get('/user/{id}/remove', [App\Http\Controllers\UsersController::class, 'destroy'])
     ->name('users.remove')
     ->middleware('roles:super_admin,admin');
