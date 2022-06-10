@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="col-12">
-                <a href="{{ route('profile.edit') }}" class="btn btn-primary"><i class="far fa-edit me-1"></i>Edit</a>
+                <a href="{{ route('profile.edit', $user->id) }}" class="btn btn-primary"><i class="far fa-edit me-1"></i>Edit</a>
             </div>
         </div>
     </div>

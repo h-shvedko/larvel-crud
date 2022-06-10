@@ -34,6 +34,12 @@ Route::get('/user/{id}/remove', [App\Http\Controllers\UsersController::class, 'd
 Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])
     ->name('profile.index')
     ->middleware('roles:user');
-Route::get('/profile/edit', [App\Http\Controllers\ProfileController::class, 'edit'])
+Route::get('/profile/edit/{id}', [App\Http\Controllers\ProfileController::class, 'edit'])
     ->name('profile.edit')
+    ->middleware('roles:user');
+Route::get('/profile/save', [App\Http\Controllers\ProfileController::class, 'index'])
+    ->name('profile.redirect')
+    ->middleware('roles:user');
+Route::post('/profile', [App\Http\Controllers\ProfileController::class, 'save'])
+    ->name('profile.save')
     ->middleware('roles:user');
